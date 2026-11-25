@@ -3,10 +3,14 @@ name: 吾爱破解自动签到
 on:
   workflow_dispatch:
   schedule:
-    # GitHub cron 使用 UTC，北京时间 = UTC+8
-    # 北京时间：08:17 / 12:23，每天签到两次
-    - cron: "17 0 * * *"
-    - cron: "23 4 * * *"
+    # 已指定 Asia/Shanghai，下面 cron 直接按北京时间解释，不用减 8 小时
+    # Beijing 07:07,10:07,and 16：07
+    - cron: '7 7 * * *'
+      timezone: Asia/Shanghai
+    - cron: '7 11 * * *'
+      timezone: Asia/Shanghai
+    - cron: '7 15 * * *'
+      timezone: Asia/Shanghai
   
 
 permissions:
